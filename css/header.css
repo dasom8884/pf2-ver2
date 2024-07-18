@@ -1,0 +1,193 @@
+*{
+  
+}
+body{
+position: relative;  
+color: #222;
+}
+a{
+  color: #222;
+}
+.fixed{
+  position: fixed;
+  bottom: 20px;
+  right: calc((100% - 1200px)/ 2);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+a.Ticketing{
+  right: calc((100% - 1200px)/ 2 + 50px);
+  background-color: #fe6c56;
+  padding: 15px 30px;
+  border-radius: 30px;
+  color: #fff;
+  box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+a.topbtn{
+  font-size: 0;
+  width: 40px;
+  height: 40px;
+  border:1px solid;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+}
+a.topbtn button{
+  background-image: url(../img/Top.png);
+  width: 15px;
+  height: 21px;
+  background-size: contain;
+}
+/* popup */
+.popup{
+
+  background-color: #1a1b39;
+}
+.popup a{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.popup a button{
+  display: block;
+  background-image: url(../img/close.png);
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  position: absolute;
+  background-size: cover;
+  right: 0;
+  top: 10px;
+}
+.popupshow{
+  display: none !important;
+}
+/* 상단영역 */
+header {
+  /*! position: absolute; */
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+   border-bottom: 3px solid #ec3023;
+  z-index: 1;
+}
+header div.wrap {
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+
+}
+header div.wrap h1 {
+  
+}
+header div.wrap h1 a {
+  width: 130px;
+}
+header div.wrap h1 a img{
+  width: 100%;
+}
+hheader div.wrap ul{
+  
+}
+header div.wrap ul li {
+  
+}
+header div.wrap ul li a {
+  padding: 0 20px;
+  line-height: 2.5;
+  border-radius: 5px; 
+  /*! color: #fff; */
+  font-size: 20px;
+}
+header div.wrap ul li  a:hover{
+  text-decoration: underline;
+}
+header div.wrap span {
+  
+}
+header div.wrap span a {
+  padding: 10px 20px;
+  line-height: 1.4;
+}
+header div.wrap span:nth-child(2){
+  color:#f6552d;
+}
+header div.wrap span:nth-child(2)::after{
+  content:"";
+  width: 5px;
+  height: 5px;
+  border: 2px solid;
+  display: inline-block;
+  transform: translateY(-1px) rotate(45deg);
+  border-left: transparent;
+  border-bottom: transparent;
+  margin-left: 3px  
+}
+header div.wrap span button {
+  height: 36px;
+  border-radius: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header div.wrap span button::before{
+  content:"";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+header div.wrap span button:first-child::before{
+    background-image: url(../img/login.png);
+}
+header div.wrap span button:last-child::before{
+    background-image: url(../img/loginjoin.png);
+}
+header div.wrap span button:hover{
+ color: #888;
+}
+
+/* 서브메뉴 */
+header div.wrap .submenu{
+ display: flex;
+  position: absolute;
+  background-color: #fff;
+  top: 80px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-top: 3px solid #ec3023;
+  z-index: 5;
+}
+header div.wrap .submenu a{
+  display: block;
+  color: #333;
+  font-size: 12px;
+}
+header div.wrap .submenu > li{
+  border-left: 1px solid #ddd;
+  padding:0 40px
+}
+header div.wrap .submenu > li:nth-of-type(1){
+  border: initial;
+}
+header div.wrap .submenu > li > a{
+  font-size: 16px;
+  font-weight: 900;
+}
+
+
+
+
+

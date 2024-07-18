@@ -1,0 +1,61 @@
+
+/* 하단 */
+footer{
+   background-color: #ededed;
+}
+footer div.wrap{
+   max-width: 1120px;
+   position: relative;
+}
+footer div.wrap::before{
+   content:"";
+}
+footer div.wrap ul.fnb2 {
+   grid-template-columns: repeat(12,auto);
+   padding-top: 30px;
+   margin-bottom: 30px;
+}
+footer div.wrap ul.fnb2 li {
+   
+}
+footer div.wrap ul.fnb2 li a {
+   line-height: 2;
+   border-radius: 4px;
+   transition: 0.2s;
+   color: #8b95a1;
+}
+footer div.wrap ul.fnb2 li:nth-of-type(8) a{
+   color: #4e5968;
+}
+footer div.wrap ul.fnb2 li a:hover{
+   text-decoration: underline;
+}
+
+footer div.wrap address {
+   
+   margin-top: 20px;
+   color: #8b95a1;
+   line-height: 1.5;
+}
+footer div.wrap address span {
+   
+}
+footer div.wrap address span a{
+   display: inline-block;
+   color: #007aff;
+}
+footer div.wrap address span a:hover{
+
+}
+footer select{
+   position: absolute;
+   right: 0;
+   bottom: 50px;
+   border-radius: 0;
+   border: 1px solid #ddd;
+   font-size: 12px;
+   height: 34px;
+}
+
+
+
