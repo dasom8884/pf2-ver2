@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PF2-ver2. CGV</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <!-- 스크립트 -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+         $(document).ready(function(){
+            //팝업
+            $(".popup a button").click(function(){
+                $(".popup").hide();
+                return false;
+            });
+
+            //메뉴
+            $(".submenu").hide();
+            $("header div.wrap ul li").mouseover(function(){
+                $(".submenu").stop().slideDown();
+            });
+            $("header div.wrap ul li").mouseout(function(){
+                $(".submenu").stop().slideUp();
+            });
+
+            $("#cinema div.wrap div.cinema:not(:nth-of-type(1))").hide();
+            $("#cinema div.wrap ul li").mouseover(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+                return false;
+            });
+
+            $("#cinema div.wrap ul li:nth-of-type(1)").mouseover(function(){
+                $("#cinema div.wrap div.cinema:nth-of-type(1)").show();
+                $("#cinema div.wrap div.cinema:not(:nth-of-type(1))").hide();
+            });
+            $("#cinema div.wrap ul li:nth-of-type(2)").mouseover(function(){
+                $("#cinema div.wrap div.cinema:nth-of-type(2)").show();
+                $("#cinema div.wrap div.cinema:not(:nth-of-type(2))").hide();
+            });
+            $("#cinema div.wrap ul li:nth-of-type(3)").mouseover(function(){
+                $("#cinema div.wrap div.cinema:nth-of-type(3)").show();
+                $("#cinema div.wrap div.cinema:not(:nth-of-type(3))").hide();
+            });
+            $("#cinema div.wrap ul li:nth-of-type(4)").mouseover(function(){
+                $("#cinema div.wrap div.cinema:nth-of-type(4)").show();
+                $("#cinema div.wrap div.cinema:not(:nth-of-type(4))").hide();
+            });
+
+
+            //무비차트 
+            $(".movieChart-r").hide();
+            $("section#chart div.wrap h2").click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+            $("section#chart div.wrap h2:nth-of-type(1)").click(function(){
+                $(".movieChart").show();
+                $(".movieChart-r").hide();
+            });
+            $("section#chart div.wrap h2:nth-of-type(2)").click(function(){
+                $(".movieChart-r").show();
+                $('.movieChart-r').slick('setPosition');
+                $(".movieChart").hide();
+            
+            });
+        });
+    </script>
+
+    <!-- 슬릭 -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
+    <script>
+          $(document).ready(function(){
+            $('.chartAni').slick({
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                dots: false,
+                infinite: true,
+                speed: 500,
+                cssEase: 'ease-out',
+                arrows:true
+            });
+            $('.eventAni').slick({
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                cssEase: 'ease-out',
+                arrows:true,
+                fade:false
+            });
+
+            
+        });
+    </script>
+</head>
+<body>
+    <!-- popup -->
+     <div class="popup">
+        <div class="wrap">
+            <a href="" class="block">
+                <img src="img/pop.jpg" alt="">
+                <button class="close">닫기</button>
+            </a>
+        </div>
+     </div>
+    <!-- 상단영역 -->
+    <header>
+        <div class="wrap flex">
+            <h1><a href="" class="block"><img src="img/logoRed.png" alt="로고레드"></a></h1>
+            <ul class="flex bold">
+                <li><a href="" class="block">영화 </a></li>
+                <li><a href="" class="block">극장</a></li>
+                <li><a href="" class="block">예매</a></li>
+                <li><a href="" class="block">스토어</a></li>
+                <li><a href="" class="block">이벤트</a></li>
+                <li><a href="" class="block">혜택</a></li>
+            </ul>
+            <span class="flex">
+                <button class="block sm13 bold">로그인</button>
+                <button class="block sm13 bold">회원가입</button>
+            </span>
+            <ul class="submenu">
+                <li>
+                    <a href="">영화</a>
+                    <ul class="list">
+                        <li><a href="">무비차트</a></li>
+                        <li><a href="">아트하우스</a></li>
+                        <li><a href="">ICECON</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">극장</a>
+                    <ul class="list">
+                        <li><a href="">CGV 극장</a></li>
+                        <li><a href="">특별관</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">예매</a>
+                    <ul class="list">
+                        <li><a href="">빠른예매</a></li>
+                        <li><a href="">상영스케줄</a></li>
+                        <li><a href="">English Ticketing</a></li>
+                        <li><a href="">English Schedule</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">스토어</a>
+                    <ul class="list">
+                        <li><a href="">패키지</a></li>
+                        <li><a href="">영화관람권</a></li>
+                        <li><a href="">기프트카드</a></li>
+                        <li><a href="">콤보</a></li>
+                        <li><a href="">팝콘</a></li>
+                        <li><a href="">음료</a></li>
+                        <li><a href="">스낵</a></li>
+                        <li><a href="">플레이존</a></li>
+                        <li><a href="">씨네샵</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">이벤트</a>
+                    <ul class="list">
+                        <li><a href="">SPECIAL</a></li>
+                        <li><a href="">영화/예매</a></li>
+                        <li><a href="">멤버십/CLUB</a></li>
+                        <li><a href="">CGV 극장별</a></li>
+                        <li><a href="">제휴할인</a></li>
+                        <li><a href="">당첨자 발표</a></li>
+                        <li><a href="">종료된 이벤트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">혜택</a>
+                    <ul class="list">
+                        <li><a href="">CGV 할인정보</a></li>
+                        <li><a href="">CLUB 서비스</a></li>
+                        <li><a href="">VIP 라운지</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- 타이틀영역 -->
+    <div id="title">
+        <div class="wrap flex">
+            <div class="title-text">
+                <h2 class="h1 bold">
+                    극장판 도라에몽:진구의 지구 교향곡
+                </h2>
+                <p class="h6">
+                    여름의 시작은? 도라에몽!
+                    <span class="block"></span>
+                    7월 15일 대개봉
+                </p>
+                <a href="" class="block h6 bold">상세보기</a>
+            </div>
+            <div class="video-container">
+                <video src="img/title 01.mp4" autoplay="" muted=""></video>
+            </div>
+        </div>  
+    </div>
+    <!-- 메인영역 -->
+    <main>
+        <!-- movie chart -->
+        <section id="chart">
+            <div class="wrap paddingT50 paddingB50">
+                <div class="chart-btn">
+                    <h2 class="active h4 ">무비차트</h2>
+                    <h2 class="h4 ">상영예정작</h2>
+                    <a href="" class="view block">전체보기</a>
+                </div>    
+                <ul class="movieChart chartAni">
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie1.jpg" alt="">
+                                <img src="img/all.svg" alt="">
+                                <figcaption>
+                                    1
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">인사이드 아웃2</strong>
+                            <span><img src="img/egg.png" alt="">97%</span>
+                            <span>예매율 28.0%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie2.jpg" alt="">
+                                <img src="img/15.svg" alt="">
+                                <figcaption>
+                                    2
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">콰이어트 플레이스-첫째 날</strong>
+                            <span><img src="img/egg.png" alt="">74%</span>
+                            <span>예매율 18.2%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie3.jpg" alt="">
+                                <img src="img/19.svg" alt="">
+                                <figcaption>
+                                    3
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">데드풀과 울버린</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 10.6%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie4.jpg" alt="">
+                                <img src="img/12.svg" alt="">
+                                <figcaption>
+                                    4
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">하이재킹</strong>
+                            <span><img src="img/egg.png" alt="">95%</span>
+                            <span>예매율 13.6%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie5.jpg" alt="">
+                                <img src="img/12.svg" alt="">
+                                <figcaption>
+                                    5
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">탈주</strong>
+                            <span><img src="img/egg.png" alt="">99%</span>     
+                            <span>예매율 7.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie6.jpg" alt="">
+                                <img src="img/all.svg" alt="">
+                                <figcaption>
+                                    6
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">극장판 도라에몽-진구의 지구 교향곡</strong>
+                            <span><img src="img/egg.png" alt="">99%</span>
+                            <span>예매율 7.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie7.jpg" alt="">
+                                <img src="img/12.svg" alt="">
+                                <figcaption>
+                                    7
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">플라이 미 투더 문</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 7.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie8.jpg" alt="">
+                                <img src="img/12.svg" alt="">
+                                <figcaption>
+                                    8
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">파일럿</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 7.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie9.jpg" alt="">
+                                <img src="img/all.svg" alt="">
+                                <figcaption>
+                                    9
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">극장판 하이큐!! 쓰레기장의 결전</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 7.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/movie10.jpg" alt="">
+                                <img src="img/15.svg" alt="">
+                                <figcaption>
+                                    10
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">핸섬가이즈</strong>
+                            <span><img src="img/Preegg.png" alt="">93%</span>
+                            <span>예매율 3.5%</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="movieChart-r chartAni">
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe1.jpg" alt="">
+                                <figcaption>
+                                    1
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">탈주</strong>
+                            <span><img src="img/egg.png" alt="">97%</span>
+                            <span>예매율 28.0%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe2.jpg" alt="">
+                                <figcaption>
+                                    2
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">퍼펙트 데이즈</strong>
+                            <span><img src="img/egg.png" alt="">74%</span>
+                            <span>예매율 18.2%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe3.jpg" alt="">
+                                <figcaption>
+                                    3
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">만천과해</strong>
+                            <span><img src="img/egg.png" alt="">92%</span>
+                            <span>예매율 14.4%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe4.jpg" alt="">
+                                <figcaption>
+                                    4
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">민요첼로</strong>
+                            <span><img src="img/Preegg.png" alt="">95%</span>
+                            <span>예매율 1.6%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe5.jpg" alt="">
+                                <figcaption>
+                                    5
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">건담</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 1.6%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe6.jpg" alt="">
+                                <figcaption>
+                                    6
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">오르세미술관</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 0.6%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe7.jpg" alt="">
+                                <figcaption>
+                                    7
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">듄-파트2</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 7.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe8.jpg" alt="">
+                                <figcaption>
+                                    8
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">듄</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 7.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe9.jpg" alt="">
+                                <figcaption>
+                                    9
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">벨라스케스</strong>
+                            <span><img src="img/Preegg.png" alt="">99%</span>
+                            <span>예매율 0.5%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="block">
+                            <figure>
+                                <img src="img/tobe10.jpg" alt="">
+                                <figcaption>
+                                    10
+                                </figcaption>
+                            </figure>
+                            <div class="btn-wrap">
+                                <button>상세보기</button>
+                                <button>예매하기</button>
+                             </div>
+                        </a>
+                        <div class="movieinfo">
+                            <strong class="h6 bold">만덜레이</strong>
+                            <span><img src="img/Preegg.png" alt="">?</span>
+                            <span>예매율 0.0%</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- 서비스영역 -->
+        <section id="service" class="paddingT50 paddingB50">
+            <div class="wrap flex">
+                <h2 class="hide">할인서비스</h2>
+                <p class="h5 bold">
+                    CGV만의 다양한 
+                    <span class="block"></span>
+                    할인정보를 확인해 보세요.
+                </p>
+                <a href="" class="block bold">자세히보기</a>
+            </div>
+        </section>
+        <!-- 이벤트 -->
+        <section id="event">
+            <div class="wrap paddingT50 paddingB50 flex">
+                <h2 class="h4 bold">EVENT</h2>
+                <a href="" class="view block">전체보기</a>
+                <ul class="eventAni">
+                    <li>
+                        <a href="" class="block"> 
+                            <img src="img/event1.jpg" alt="이벤트1">   
+                            <div class="eventWrap">
+                                <h3 class="h6 bold">신규 회원님 주목,[6월은 New월!]</h3>
+                                <p class="p15">2024.05.30 ~ 2024.07.01</p>
+                            </div>    
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="block"> 
+                            <img src="img/event2.jpg" alt="이벤트2">   
+                            <div class="eventWrap">
+                                <h3 class="h6 bold">시원한 여름맞이★무비 COOL TIP 대방출!</h3>
+                                <p class="p15">2024.06.17 ~ 2024.06.30</p>
+                            </div>    
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="block"> 
+                            <img src="img/event3.jpg" alt="이벤트3">   
+                            <div class="eventWrap">
+                                <h3 class="h6 bold">[하이재킹] 4DX포스터</h3>
+                                <p class="p15">2024.06.14 ~ 2024.06.27</p>
+                            </div>    
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="block"> 
+                            <img src="img/event4.jpg" alt="이벤트4">   
+                            <div class="eventWrap">
+                                <h3 class="h6 bold">[콰이어트플레이스-첫째날] 냥집사 맞춤 상영회</h3>
+                                <p class="p15">2024.06.26 ~ 2024.07.05</p>
+                            </div>    
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="block"> 
+                            <img src="img/event5.jpg" alt="이벤트5">   
+                            <div class="eventWrap">
+                                <h3 class="h6 bold">[인사이드 아웃2] N춘기 애착인형 상영회</h3>
+                                <p class="p15">2024.06.26 ~ 2024.07.02</p>
+                            </div>    
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="block"> 
+                            <img src="img/event6.jpg" alt="이벤트6">   
+                            <div class="eventWrap">
+                                <h3 class="h6 bold">[슈퍼배드4]미리보기 시사회</h3>
+                                <p class="p15">2024.06.20 ~ 2024.07.04</p>
+                            </div>    
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- 특별관 -->
+        <section id="cinema">
+            <div class="wrap paddingT50 paddingB50">
+                <h2 class="h4 bold">특별관</h2>
+                <a href="" class="view block">전체보기</a>
+                <ul class="list">
+                    <li class="active"><a href="" class="block">SUITE CINEMA <p>#호텔 컨셉의 프리미엄관</p></a></li>
+                    <li><a href="" class="block">CINE & LIVINGROOM<p>#신개념 소셜 상영관</p></a></li>
+                    <li><a href="" class="block">4DX<p>#모션시트 #오감체험</p></a></li>
+                    <li><a href="" class="block">CINE de CHEF<p>#쉐프가 있는 영화관</p></a></li>
+                </ul>
+                <div class="cinema cinema1">
+                    <img src="img/cinema1.png" alt="프리미엄관 이미지">
+                </div>
+                <div class="cinema cinema2">
+                    <img src="img/cinema2.png" alt="소셜사진관 이미지">
+                </div>
+                <div class="cinema cinema3">
+                    <img src="img/cinema3.png" alt="모션시트,오감체험 이미지">
+                </div>
+                <div class="cinema cinema4">
+                    <img src="img/cinema4.png" alt="쉐프가 있는 사진관 이미지">
+                </div>
+            </div>
+        </section>
+        <!-- 스토어 -->
+        <section id="tip">
+            <div class="wrap paddingT50 paddingB50 flex">
+                <h2 class="h4 bold">CGV 스토어</h2>
+                <ul class="flex">
+                    <li>
+                        <h3 class="h6 bold">패키지</h3>
+                        <a href="">더보기</a>
+                        <ul class="menu">
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st1.jpg" alt="">
+                                    <p>우리패키지
+                                    <span>62,000원</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st2.jpg" alt="">
+                                    <p>나랑 너 패키지
+                                    <span>35,000원</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st3.jpg" alt="">
+                                    <p>좋은 날 패키지
+                                    <span>18,000원</span>
+                                    </p>    
+                                </a>
+                            </li>
+                        
+                        </ul>   
+                    </li>
+                    <li>
+                        <h3 class="h6 bold">영화관람권</h3>
+                        <a href="">더보기</a>
+                        <ul class="menu">
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st4.jpg" alt="">
+                                    <p>CGV 영화관람권
+                                    <span>13,000원</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st5.jpg" alt="">
+                                     <p>IMAX 영화관람권
+                                    <span>18,000원</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st6.jpg" alt="">
+                                    <p>4DX 영화관람권
+                                    <span>19,000원</span>
+                                    </p>
+                                </a>
+                            </li>
+                        
+                        </ul>   
+                    </li>
+                    <li>
+                        <h3 class="h6 bold">기프트카드</h3>
+                        <a href="">더보기</a>
+                        <ul class="menu">
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st7.jpg" alt="">
+                                    <p>PACONNIE A형
+                                    <span>금액충전형</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st8.jpg" alt="">
+                                    <p>PACONNIE B형
+                                    <span>금액충전형</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="block">
+                                    <img src="img/st9.jpg" alt="">
+                                    <p>PACONNIE C형
+                                    <span>금액충전형</span>
+                                    </p>
+                                </a>
+                            </li>
+                        
+                        </ul>   
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+        <!-- 소식 -->
+        <section id="news">
+            <div class="wrap paddingB30 paddingT30">
+                <h2 class="hide">cgv 소식</h2>
+                <ul class="grid">
+                    <li>
+                        <h3 class="h6 bold">공지사항</h3>
+                        <a href="">[[행사/이벤트]] [CGV] <선재 업고 튀어> 최종화 단체 관람 이벤트 관련 주요 공지 </a>
+                        <button>더보기 +</button>
+                    </li>
+                    <li>
+                        <h3 class="h6 bold">고객센터</h3>
+                        <div class="center">
+                            <strong>1544-1122</strong>
+                            <p>고객센터 운영시간 (평일 09:00~18:00) </p>
+                            <span>업무시간 외 자동응답 안내 가능합니다.</span>
+                        </div>
+                        <div class="QNA">
+                            <button>FAQ</button>
+                            <button>1:1 문의</button>
+                            <button>대관/단체 문의</button>
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="h6 bold">앱 다운로드</h3>
+                        <p>CGV앱에서 더 편리하게 이용하세요</p>
+                        <img src="img/qrcode.gif" alt="qr코드">
+                        <span>QR코드를 스캔하고 <br>
+                            앱설치 페이지로 바로 이동하세요</span>
+                    </li>
+                </ul>
+                <a href="">
+                    <img src="img/BUGS.png" alt="벅스이미지">
+                </a>
+            </div>
+        </section>
+    </main>
+    <!-- 하단영역 -->
+    <footer>   
+        <div class="wrap paddingT50 paddingB50">
+            <h1 class="hide"></h1>
+            <ul class="fnb2 grid">
+                <li><a href="" class="block sm13 bold">회사소개</a></li>
+                <li><a href="" class="block sm13 bold">지속가능경영</a></li>
+                <li><a href="" class="block sm13 bold">IR</a></li>
+                <li><a href="" class="block sm13 bold">채용정보</a></li>
+                <li><a href="" class="block sm13 bold">광고/제휴/출점문의</a></li>
+                <li><a href="" class="block sm13 bold">이용약관</a></li>
+                <li><a href="" class="block sm13 bold">편성기준</a></li>
+                <li><a href="" class="block sm13 bold">개인정보처리방침</a></li>
+                <li><a href="" class="block sm13 bold">법적고지</a></li>
+                <li><a href="" class="block sm13 bold">이메일주소무단수집거부</a></li>
+                <li><a href="" class="block sm13 bold">윤리경영</a></li>
+                <li><a href="" class="block sm13 bold">사이버감사실</a></li>
+            </ul>
+            <address class="sm13">(04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)
+                <span class="block">
+                대표이사
+                    허민회
+                사업자등록번호
+                    104-81-45690
+                통신판매업신고번호
+                    2017-서울용산-0662 <a href="" class="block">사업자정보확인</a> <br>
+                
+                호스팅사업자
+                    CJ올리브네트웍스
+                개인정보보호 책임자
+                    도형구
+                대표이메일
+                    cjcgvmaster@cj.net <br>
+                
+                © CJ CGV. All Rights Reserved
+                </span>
+            </address>
+            <select id="계열사 바로가기">계열사바로가기
+                <option class="family site">계열사바로가기</option>
+                <optgroup label="cj그룹">
+                    <option value="">CJ주식회사</option>
+                </optgroup>
+                <optgroup label="식품&식품서비스">
+                    <option value="">CJ제일제당</option>
+                    <option value="">CJ푸드빌</option>
+                    <option value="">CJ프레시웨이</option>
+                </optgroup>
+                <optgroup label="생명공학">
+                    <option value="">CJ제일제당 BIO사업부문</option>
+                    <option value="">CJ Feed&Card</option>
+                </optgroup>
+                <optgroup label="물류&신유통">
+                    <option value="">CJ대한통운</option>
+                    <option value="">CJ대한통운 건설부문</option>
+                    <option value="">CJ올리브영</option>
+                    <option value="">CJ올리브네트웍스</option>
+                    <option value="">CJ ENM 커머스부문</option>
+                </optgroup>
+                <optgroup label="엔터테인먼트&미디어">
+                    <option value="">CJ ENM 엔터테인먼트부문</option>
+                    <option value="">CJ CGV</option>
+                </optgroup>
+            </select>
+        </div>
+    </footer>
+    <!-- 예매 , 탑 버튼 -->
+     <div class="fixed">
+        <a href="" class="Ticketing block">예매하기</a>
+        <a href="" class="topbtn">  
+            <button>위로</button>
+        </a>  
+     </div>
+</body>
+</html>
